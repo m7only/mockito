@@ -29,14 +29,16 @@ class UserServiceTest {
 
     @Test
     public void shouldReturnTrueWhenUserIsExist() {
-        when(userDaoMock.getUserByName(eq(CORRECT_NAME))).thenReturn(CORRECT_USER);
+        when(userDaoMock.getUserByName(eq(CORRECT_NAME)))
+                .thenReturn(CORRECT_USER);
         assertTrue(out.checkUserExist(CORRECT_USER));
 
     }
 
     @Test
     public void shouldReturnFalseWhenUserIsNotExist() {
-        when(userDaoMock.getUserByName(eq(INCORRECT_NAME))).thenReturn(null);
+        when(userDaoMock.getUserByName(eq(INCORRECT_NAME)))
+                .thenReturn(null);
         assertFalse(out.checkUserExist(INCORRECT_USER));
     }
 }
